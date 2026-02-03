@@ -1,10 +1,10 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import React from "react";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { HapticTab } from "@/components/haptic-tab";
+import { IconSymbol } from "@/components/ui/icon-symbol";
+import { Colors } from "@/constants/theme";
+import { useColorScheme } from "@/hooks/use-color-scheme";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -12,22 +12,54 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
+        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        headerShown: true,
         tabBarButton: HapticTab,
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Home",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="house.fill" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="sum"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Sum",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="chevron.left" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="translator"
+        options={{
+          title: "Translator",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="0.circle" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="multiply"
+        options={{
+          title: "Multiply",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="chevron.right" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="video"
+        options={{
+          title: "Video",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="paperplane.fill" color={color} />
+          ),
         }}
       />
     </Tabs>
